@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
 
   <ItemGroup>
+    <ClCompile Include="Source\Inventory\Inventory.cpp" />
     <ClCompile Include="Source\Item\Item.cpp" />
     <ClCompile Include="Source\Main.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
@@ -210,12 +211,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Source\Inventory\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ClInclude Include="Source\CommandBase.h" />
     <ClInclude Include="Source\Interfaces\IBakable.h" />
     <ClInclude Include="Source\Interfaces\IFlammable.h" />
+    <ClInclude Include="Source\Inventory\Inventory.h" />
     <ClInclude Include="Source\Item\Item.h" />
     <ClInclude Include="Source\Item\ItemType.h" />
   </ItemGroup>

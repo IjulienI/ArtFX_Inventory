@@ -1,6 +1,10 @@
 ﻿#include <iostream>
 
+#include "Inventory/Inventory.h"
+
+Inventory* mInventory = new Inventory();
+
 int main()
 {
-    std::cout << "Test\n";
+    mInventory->ShowInventory();
 }

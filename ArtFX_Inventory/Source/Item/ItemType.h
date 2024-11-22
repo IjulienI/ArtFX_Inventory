@@ -13,3 +13,4 @@ enum Type
     Rare = 1 << 6,
     Legendary = 1 << 7
 };
+
