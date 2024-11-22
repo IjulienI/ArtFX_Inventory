@@ -217,6 +217,7 @@
     <ClInclude Include="Source\Inventory\Inventory.h" />
     <ClInclude Include="Source\Item\Item.h" />
     <ClInclude Include="Source\Item\ItemType.h" />
+    <ClInclude Include="Source\OverrideVector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

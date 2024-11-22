@@ -1,8 +1,10 @@
 ﻿#pragma once
 
+class Item;
+
 class IBakable
 {
 public:
     virtual ~IBakable() = default;
-    virtual void Bake() = 0;    
+    virtual Item* Bake() = 0;
 };
