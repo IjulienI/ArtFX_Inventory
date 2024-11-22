@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 
 #include "Inventory/Inventory.h"
+#include "Cook/CookFactory.h"
 
 Inventory* mInventory = new Inventory();
 
@@ -40,6 +41,7 @@ void Menu()
             mInventory->DropItem();
             break;
         case 3:
+            Cook(mInventory);
             break;
         case 4:
             bExit = true;

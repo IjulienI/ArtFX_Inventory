@@ -6,5 +6,5 @@ class IBakable
 {
 public:
     virtual ~IBakable() = default;
-    virtual Item* Bake() = 0;
+    virtual void Bake() = 0;
 };

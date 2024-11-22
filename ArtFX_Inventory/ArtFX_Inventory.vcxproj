@@ -133,6 +133,7 @@
 
   <ItemGroup>
     <ClCompile Include="Source\Inventory\Inventory.cpp" />
+    <ClCompile Include="Source\Item\Childs\Food.cpp" />
     <ClCompile Include="Source\Item\Item.cpp" />
     <ClCompile Include="Source\Main.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
@@ -212,9 +213,12 @@
 
   <ItemGroup>
     <ClInclude Include="Source\CommandBase.h" />
+    <ClInclude Include="Source\Cook\CookFactory.h" />
     <ClInclude Include="Source\Interfaces\IBakable.h" />
     <ClInclude Include="Source\Interfaces\IFlammable.h" />
     <ClInclude Include="Source\Inventory\Inventory.h" />
+    <ClInclude Include="Source\Item\Childs\Food.h" />
+    <ClInclude Include="Source\Item\FoodType.h" />
     <ClInclude Include="Source\Item\Item.h" />
     <ClInclude Include="Source\Item\ItemType.h" />
     <ClInclude Include="Source\OverrideVector.h" />

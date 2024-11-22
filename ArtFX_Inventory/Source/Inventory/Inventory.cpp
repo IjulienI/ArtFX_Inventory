@@ -2,23 +2,31 @@
 
 #include "../CommandBase.h"
 #include "../OverrideVector.h"
+#include "../Item/FoodType.h"
+#include "../Item/Childs/Food.h"
 
 Inventory::Inventory()
 {
-    Item* hello = new Item("oui", ItemType::Type::Armor, ItemType::Type::Rare);
-    mItems += hello;
-    Item* hello1 = new Item("Excalibur", ItemType::Type::Weapon, ItemType::Type::Legendary);
-    mItems += hello1;
+    Food* Beef = new Food("Beef", ItemType::Type::Food, ItemType::Type::Rare,FoodType::Meat);
+    mItems += Beef;
+    Food* Salad = new Food("Salad", ItemType::Type::Food, ItemType::Type::Rare,FoodType::Vegetable);
+    mItems += Salad;
+    Item* Excalibur = new Item("Excalibur", ItemType::Type::Weapon, ItemType::Type::Legendary);
+    mItems += Excalibur;
+    Item* EldenRing = new Item("TheEldenRing", ItemType::Type::Ring, ItemType::Type::Legendary);
+    mItems += EldenRing;
+    Item* HaloRond = new Item("HaloRond", ItemType::Type::Ring, ItemType::Type::Common);
+    mItems += HaloRond;
 
     Refresh();
 }
 
-void Inventory::AddItem(Item* pItem)
+void Inventory::AddItem(Item* pItem, bool bSilent)
 {
-    Clear();
+    if(!bSilent) Clear();
     mItems += pItem;
     std::cout << "You put " << pItem->GetName().c_str() << " in your inventory\n";
-    Continue();
+    if(!bSilent) Continue();
 }
 
 void Inventory::AddItems(std::vector<Item*> pItems)
@@ -36,16 +44,14 @@ void Inventory::RemoveItem(std::string pName)
 {
     Clear();
     
-    for(Item* item : mItems)
-    {
-        if(item->GetName() == pName)
-        {
-            mItems -= item;
-            std::cout << "You drop " << item->GetName().c_str() << "\n";
-            Continue();
-            return;
-        }
-    }
+    Item* tempItem = GetItem(pName);
+    if(tempItem)
+    {        
+        mItems -= tempItem;
+        std::cout << "You drop " << tempItem->GetName().c_str() << "\n";
+        Continue();
+        return;
+    }    
     std::cout << "You don't have this item in your inventory \n";
     Continue();
 }
@@ -88,6 +94,11 @@ void Inventory::ShowInventory(bool bContinue)
     if(bContinue) Continue();
 }
 
+void Inventory::DeleteItem(std::string pName)
+{
+    mItems -= GetItem(pName);
+}
+
 void Inventory::DropItem()
 {
     ShowInventory(false);
@@ -96,4 +107,21 @@ void Inventory::DropItem()
     std::cin.clear();
     getline(std::cin, choice);
     RemoveItem(choice);
+}
+
+std::vector<Item*> Inventory::GetFood()
+{
+    return foods;
+}
+
+Item* Inventory::GetItem(std::string pName)
+{
+    for(Item* item : mItems)
+    {
+        if(item->GetName() == pName)
+        {
+            return item;
+        }
+    }
+    return nullptr;
 }

@@ -43,8 +43,13 @@ inline void PrintLine(std::string pText, bool bIsItem = false, uint8_t pRarity =
 
 inline void PrintCategory(std::string pCategoryName,std::vector<Item*> pItems)
 {
-    if(pItems.empty()) return;
-    PrintLine(pCategoryName);    
+    PrintLine(pCategoryName); 
+    if(pItems.empty())
+    {
+        std::cout << "|Empty                           |\n";
+        std::cout << "----------------------------------\n";
+        return;
+    }       
     for(Item* item : pItems)
     {
         PrintLine(item->GetName(), true, item->GetType());

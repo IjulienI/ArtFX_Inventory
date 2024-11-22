@@ -11,7 +11,7 @@ public:
     std::uint8_t GetType();
     bool HasTag(ItemType::Type tag) const;
 
-private:
+protected:
     std::string mName;
     std::uint8_t mType;
 };
